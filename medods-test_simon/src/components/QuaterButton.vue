@@ -1,5 +1,9 @@
 <template>
-  <button class="game-area__button" :id="id"></button>
+  <button
+    class="game-area__button"
+    :id="id" type="button"
+    @click="$emit('checkClick', $event)">
+  </button>
 </template>
 
 <script>
@@ -9,6 +13,9 @@ export default {
       type: String,
       required: true,
     },
+  },
+  methods: {
+
   },
 };
 </script>
