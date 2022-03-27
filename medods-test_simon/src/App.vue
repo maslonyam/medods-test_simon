@@ -1,25 +1,20 @@
 <template>
   <div id="app">
+    <GameArea />
   </div>
 </template>
 
 <script>
+import GameArea from './components/game-area/GameArea.vue';
 
 export default {
   name: 'App',
   components: {
-
+    GameArea,
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
