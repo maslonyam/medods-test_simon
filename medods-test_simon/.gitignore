@@ -2,7 +2,7 @@
 node_modules
 /dist
 .editorconfig
-.eslintrc
+.eslintrc.js
 
 
 # local env files
