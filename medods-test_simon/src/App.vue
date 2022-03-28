@@ -8,7 +8,10 @@
     <QuaterButton @checkClick="checkClick" id="button-4"/>
     <LoseGame :loseClass="loseGameClass"/>
   </div>
+  <div class="game-panel">
+    <GameSettings @setLevel="setLevel" />
     <StartButton @startGame="startGame" />
+  </div>
   </div>
 </template>
 
@@ -16,6 +19,7 @@
 import QuaterButton from './components/QuaterButton.vue';
 import StartButton from './components/StartButton.vue';
 import LoseGame from './components/LoseGame.vue';
+import GameSettings from './components/GameSettings.vue';
 
 export default {
   name: 'App',
@@ -24,6 +28,7 @@ export default {
       buttonsArray: [],
       tempArray: [],
       round: 0,
+      level: 1500,
       loseGameClass: '',
     };
   },
@@ -31,6 +36,7 @@ export default {
     QuaterButton,
     StartButton,
     LoseGame,
+    GameSettings,
   },
   methods: {
     startGame() {
@@ -66,6 +72,9 @@ export default {
     loseGame() {
       this.loseGameClass = 'show';
     },
+    setLevel($event) {
+      this.level = Number($event.target.value);
+    },
     getRandomNum() {
       return Math.floor(Math.random() * 4);
     },
@@ -79,7 +88,7 @@ export default {
         if (index >= this.buttonsArray.length) {
           clearInterval(interval);
         }
-      }, 1500);
+      }, this.level);
     },
     lightButton(button) {
       const but = button;
@@ -87,8 +96,8 @@ export default {
         but.classList.add('light-up');
         setTimeout(() => {
           but.classList.remove('light-up');
-        }, 500);
-      }, 500);
+        }, 250);
+      }, 250);
     },
   },
 };
