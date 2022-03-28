@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 $purple: #CF92FF;
   .game-dashboard {
+    margin-bottom: auto;
     &__round {
       font-weight: 400;
       font-size: 40px;

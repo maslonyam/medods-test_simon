@@ -130,4 +130,10 @@ $black: #000000;
     border: 1px solid rgba($black, 0.5);
     border-radius: 50px;
   }
+
+  .game-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 </style>
