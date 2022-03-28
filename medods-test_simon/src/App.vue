@@ -128,9 +128,18 @@ export default {
 <style lang="scss">
 $white: #ffffff;
 $black: #000000;
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 #app {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 40px;
+
+  height: 100vh;
 }
   .game-area {
     position: relative;
