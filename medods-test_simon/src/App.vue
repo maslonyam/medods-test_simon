@@ -59,15 +59,15 @@ export default {
       this.buttonsArray.push(buttons[this.getRandomNum()]);
       this.tempArray = this.buttonsArray.slice(0);
       this.animateButtons(this.buttonsArray);
-      console.log(this.buttonsArray);
     },
     checkClick($event) {
+      this.playSound($event.target.getAttribute('id'));
       if ($event.target === this.buttonsArray.shift()) {
         if (this.buttonsArray.length === 0) {
-          this.round += 1;
-          this.newRound();
-        } else {
-          console.log('continue');
+          setTimeout(() => {
+            this.round += 1;
+            this.newRound();
+          }, 1500);
         }
       } else {
         this.loseGame();
@@ -89,8 +89,8 @@ export default {
       let index = 0;
       const interval = setInterval(() => {
         const button = array[index];
-        console.log(index, button, this.buttonsArray.length);
         this.lightButton(button);
+        this.playSound(button.getAttribute('id'));
         index += 1;
         if (index >= this.buttonsArray.length) {
           clearInterval(interval);
@@ -105,6 +105,21 @@ export default {
           but.classList.remove('light-up');
         }, 250);
       }, 250);
+    },
+    playSound(id) {
+      const audioSource = id;
+      const audio = new Audio();
+      if (audioSource === 'button-1') {
+        audio.src = 'https://zvukogram.com/mp3/cats/861/zvuk-notyi-fa.mp3';
+      } else if (audioSource === 'button-2') {
+        audio.src = 'https://zvukogram.com/mp3/cats/861/zvuk-notyi-re.mp3';
+      } else if (audioSource === 'button-3') {
+        audio.src = 'https://zvukogram.com/mp3/cats/861/zvuk-notyi-do.mp3';
+      } else {
+        audio.src = 'https://zvukogram.com/mp3/cats/861/zvuk-notyi-si.mp3';
+      }
+
+      audio.play();
     },
   },
 };
