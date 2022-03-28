@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-$red: #F53434;
+$red: #F5347A;
 $yellow: #FFD74B;
 $green: #21D954;
 $blue: #459FF2;
