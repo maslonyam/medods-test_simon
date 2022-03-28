@@ -34,6 +34,10 @@ $blue: #459FF2;
       border: none;
       border-radius: 50px;
 
+      &.light-up {
+        filter: contrast(300%);
+      }
+
       &:hover {
         filter: brightness(1.1);
         cursor: pointer;
