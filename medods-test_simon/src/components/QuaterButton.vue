@@ -35,16 +35,18 @@ $blue: #459FF2;
       border-radius: 50px;
 
       &.light-up {
+        transform: scale(1.02);
         filter: contrast(300%);
       }
 
       &:hover {
+        transform: scale(1.02);
         filter: brightness(1.1);
         cursor: pointer;
       }
 
       &:active {
-        filter: contrast(200%);
+        filter: contrast(300%);
       }
     }
 
