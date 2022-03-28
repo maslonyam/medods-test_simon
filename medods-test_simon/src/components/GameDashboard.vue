@@ -1,6 +1,6 @@
 <template>
   <div class="game-dashboard">
-    <p class="game-dashboard__round">Round: {{ round }} </p>
+    <p class="game-dashboard__round">Round: <span class="round-color"> {{ round }} </span></p>
   </div>
 </template>
 
@@ -16,10 +16,16 @@ export default {
 </script>
 
 <style lang="scss">
+$purple: #CF92FF;
   .game-dashboard {
     &__round {
-      font-weight: 700;
+      font-weight: 400;
       font-size: 40px;
+
+      .round-color {
+        color: $purple;
+        font-weight: 700;
+      }
     }
   }
 </style>

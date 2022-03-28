@@ -113,6 +113,10 @@ export default {
 <style lang="scss">
 $white: #ffffff;
 $black: #000000;
+#app {
+  display: flex;
+  gap: 40px;
+}
   .game-area {
     position: relative;
     display: grid;
