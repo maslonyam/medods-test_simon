@@ -9,6 +9,7 @@
     <LoseGame :loseClass="loseGameClass"/>
   </div>
   <div class="game-panel">
+    <GameDashboard :round="round" />
     <GameSettings @setLevel="setLevel" />
     <StartButton @startGame="startGame" />
   </div>
@@ -20,6 +21,7 @@ import QuaterButton from './components/QuaterButton.vue';
 import StartButton from './components/StartButton.vue';
 import LoseGame from './components/LoseGame.vue';
 import GameSettings from './components/GameSettings.vue';
+import GameDashboard from './components/GameDashboard.vue';
 
 export default {
   name: 'App',
@@ -37,12 +39,14 @@ export default {
     StartButton,
     LoseGame,
     GameSettings,
+    GameDashboard,
   },
   methods: {
     startGame() {
       this.buttonsArray = [];
       this.tempArray = [];
       this.loseGameClass = '';
+      this.round = 1;
       this.newRound();
     },
     newRound() {
@@ -73,6 +77,9 @@ export default {
       this.loseGameClass = 'show';
     },
     setLevel($event) {
+      if (this.round > 0) {
+        this.startGame();
+      }
       this.level = Number($event.target.value);
     },
     getRandomNum() {
